@@ -66,6 +66,26 @@ flutter:
     - assets/icon/Favourite.png
     - assets/icon/Cart.png
     - assets/icon/Profile.png
+    - assets/icon/banana.png
+    - assets/icon/orange.png
+    - assets/icon/pineapple.png
+    - assets/icon/lemon.png
+    - assets/icon/mango.png
+    - assets/icon/licchi.png
+    - assets/icon/kivi.png
+    - assets/icon/cherry.png
+
+    - assets/icon/tamato.png
+    - assets/icon/capsicum.png
+    - assets/icon/sweetpamkin.png
+    - assets/icon/carrot.png
+    - assets/icon/broccoli.png
+    - assets/icon/phoolgoubi.png
+    - assets/icon/krele.png
+    - assets/icon/Cabbage.png
+
+    - assets/icon/arrow.png
+    - assets/icon/arrow1.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
