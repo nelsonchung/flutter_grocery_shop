@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text("個人頁"),
+    return const Center(
+      child: Text("無設計"),
     );
   }
 }

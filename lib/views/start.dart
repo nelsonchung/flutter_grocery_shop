@@ -22,7 +22,7 @@ class _StartPageState extends State<StartPage> {
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/icon/start.png'),
-              fit: BoxFit.cover,
+              fit: BoxFit.contain,
             ),
           ),
           margin: const EdgeInsets.all(8).w,
@@ -68,6 +68,8 @@ class _StartPageState extends State<StartPage> {
                       effect: ExpandingDotsEffect(
                         dotHeight: 8.h,
                         dotWidth: 8.w,
+                        dotColor: Colors.black,
+                        activeDotColor: Colors.black,
                       ),
                     ),
                   ),
