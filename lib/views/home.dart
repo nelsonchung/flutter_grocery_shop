@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
             right: 0,
             child: AppBar(
               toolbarHeight: appBarHeight,
-              // centerTitle: true,
+              centerTitle: false,
               title: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -47,6 +47,7 @@ class _HomePageState extends State<HomePage> {
                       fontSize: 32.sp,
                       fontWeight: FontWeight.bold,
                     ),
+                    textAlign: TextAlign.left,
                   ),
                   // SizedBox(height: 16.h),
                 ],
