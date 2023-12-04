@@ -138,21 +138,6 @@ class _FavouritePageState extends State<FavouritePage> {
                           aspectRatio: 0.7,
                           spacing: 10,
                           itemBuilder: (ctx, index) {
-                            // debugPrint(current.toString());
-                            if (current == 0) {
-                              // debugPrint("0");
-
-                              return MeadlItem(
-                                meal: fruits[index],
-                              );
-                            } else if (current == 1) {
-                              // debugPrint("1");
-                              return MeadlItem(
-                                meal: vegetables[index],
-                              );
-                            }
-
-                            // 蔬菜後面不用作
                             return MeadlItem(
                               meal: fruits[index],
                             );
@@ -160,29 +145,6 @@ class _FavouritePageState extends State<FavouritePage> {
                           itemCount: fruits.length,
                         ),
                       ),
-                      // debug
-                      // child: Transform.scale(
-                      //   scale: 0.7,
-                      //   child: Container(
-                      //     decoration: BoxDecoration(
-                      //       border:
-                      //           Border.all(color: Colors.red, width: 2.w),
-                      //     ),
-                      //     child: Padding(
-                      //       padding: EdgeInsets.all(10.sp),
-                      //       child: StraggredDualView(
-                      //         aspectRatio: 0.7,
-                      //         spacing: 10,
-                      //         itemBuilder: (ctx, index) {
-                      //           return MeadlItem(
-                      //             meal: meals[index],
-                      //           );
-                      //         },
-                      //         itemCount: meals.length,
-                      //       ),
-                      //     ),
-                      //   ),
-                      // ),
                     ),
                   ),
                 ],

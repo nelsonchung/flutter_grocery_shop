@@ -12,6 +12,38 @@ class _CartPageState extends State<CartPage> {
   // AppBar高度
   final appBarHeight = 80.h;
 
+  // 也可以用products[index]['image']
+  // final List<Map<String, dynamic>> products = [
+  //   {
+  //     'name': 'Banana',
+  //     'image': 'assets/banana.png',
+  //     'category': 'Fresh fruits',
+  //     'price': 'Rs 50/kg',
+  //     'quantity': 2
+  //   },
+  //   {
+  //     'name': 'Pineapple',
+  //     'image': 'assets/pineapple.png',
+  //     'category': 'Fresh fruits',
+  //     'price': 'Rs 120/kg',
+  //     'quantity': 1
+  //   },
+  //   {
+  //     'name': 'Tomato',
+  //     'image': 'assets/tomato.png',
+  //     'category': 'Fresh vegetable',
+  //     'price': 'Rs 220/kg',
+  //     'quantity': 1
+  //   },
+  //   {
+  //     'name': 'Cabbage',
+  //     'image': 'assets/cabbage.png',
+  //     'category': 'Fresh vegetable',
+  //     'price': 'Rs 80/kg',
+  //     'quantity': 0
+  //   },
+  // ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -121,23 +153,124 @@ class _CartPageState extends State<CartPage> {
             right: 0,
             bottom: MediaQuery.of(context).size.height / 4.6.sp,
             child: Container(
-              margin: EdgeInsets.all(10.sp),
+              margin: EdgeInsets.all(16.sp),
               // ListView頭部有一段空白區域，是因為當ListView沒有和AppBar一起使用時，頭部會有一個padding，為了去掉padding，可以使用MediaQuery.removePadding
               child: MediaQuery.removePadding(
                 removeTop: true,
                 context: context,
                 child: ListView.builder(
-                  itemCount: 10,
+                  itemCount: items.length,
                   itemBuilder: (ctx, index) {
                     return Card(
-                      elevation: 4.0, // 卡片阴影
+                      color: const Color.fromRGBO(255, 255, 255, 0.3),
+                      elevation: 0,
                       margin: EdgeInsets.symmetric(
-                          horizontal: 10.sp, vertical: 6.sp),
-                      child: ListTile(
-                        leading: Icon(Icons.album), // 列表项的图标
-                        title: Text('List Item ${index + 1}'), // 列表项的标题
-                        subtitle: Text(
-                            'Subtitle of List Item ${index + 1}'), // 列表项的副标题
+                          horizontal: 10.sp, vertical: 10.sp),
+                      child: Container(
+                        padding: EdgeInsets.all(2.sp),
+                        height: 100.h,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: const Color.fromRGBO(231, 229, 229, 1.0),
+                          ),
+                        ),
+                        child: Container(
+                          padding: EdgeInsets.all(10.sp),
+                          height: 100.h,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.all(2.sp),
+                                    height: 80.h,
+                                    width: 80.w,
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                        color: const Color.fromRGBO(
+                                            231, 229, 229, 1.0),
+                                      ),
+                                    ),
+                                    child: Image.asset(
+                                      items[index].image,
+                                      fit: BoxFit.contain,
+                                      width: 70.sp,
+                                    ),
+                                  ),
+                                  SizedBox(width: 20.w),
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Text(
+                                        items[index].name,
+                                        style: TextStyle(
+                                          fontSize: 20.sp,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      Text(
+                                        items[index].category,
+                                        style: TextStyle(
+                                          fontSize: 14.sp,
+                                        ),
+                                      ),
+                                      Text(
+                                        items[index].weight,
+                                        style: TextStyle(
+                                          fontSize: 18.sp,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              const Spacer(),
+                              Container(
+                                padding: EdgeInsets.all(2.sp),
+                                height: 80.h,
+                                width: 40.w,
+                                decoration: BoxDecoration(
+                                  color:
+                                      const Color.fromRGBO(255, 255, 255, 0.5),
+                                  border: Border.all(
+                                    color: const Color.fromRGBO(
+                                        231, 229, 229, 1.0),
+                                  ),
+                                ),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    const Icon(
+                                      Icons.add,
+                                      color: Colors.black,
+                                    ),
+                                    SizedBox(width: 10.w),
+                                    Text(
+                                      "2",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16.sp,
+                                      ),
+                                    ),
+                                    SizedBox(width: 10.w),
+                                    const Icon(
+                                      Icons.remove,
+                                      color: Colors.black,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     );
                   },
@@ -152,7 +285,7 @@ class _CartPageState extends State<CartPage> {
             bottom: 0,
             child: SingleChildScrollView(
               child: Padding(
-                padding: EdgeInsets.only(left: 20.sp, right: 20),
+                padding: EdgeInsets.only(left: 26.sp, right: 26.sp),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -208,7 +341,7 @@ class _CartPageState extends State<CartPage> {
                               backgroundColor: MaterialStateProperty.all(
                                 const Color.fromRGBO(200, 186, 45, 1.0),
                               ),
-                              elevation: MaterialStateProperty.all(0),
+                              elevation: MaterialStateProperty.all(0.sp),
                               shape: MaterialStateProperty.all<
                                   RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
@@ -252,3 +385,59 @@ class _CartPageState extends State<CartPage> {
     );
   }
 }
+
+class Meal {
+  const Meal({
+    required this.name,
+    required this.weight,
+    required this.image,
+    required this.category,
+    required this.quantity,
+    // required this.type,
+  });
+
+  final String name;
+  final String weight;
+  final String image;
+  final String category;
+  final int quantity;
+  // final int type;
+}
+
+const items = [
+  Meal(
+    name: 'Banana',
+    weight: 'Rs 50/kg',
+    image: 'assets/icon/banana.png',
+    category: 'Fesh fruits',
+    quantity: 2,
+  ),
+  Meal(
+    name: 'Pineapple',
+    weight: 'Rs 120/kg',
+    image: 'assets/icon/pineapple.png',
+    category: 'Fesh fruits',
+    quantity: 1,
+  ),
+  Meal(
+    name: 'Tomato',
+    weight: 'Rs 220/kg',
+    image: 'assets/icon/tamato.png',
+    category: 'Fesh vegetables',
+    quantity: 1,
+  ),
+  Meal(
+    name: 'Cabbage',
+    weight: 'Rs 80/kg',
+    image: 'assets/icon/Cabbage.png',
+    category: 'Fesh vegetables',
+    quantity: 1,
+  ),
+  Meal(
+    name: 'Caulliflower',
+    weight: 'Rs 140/kg',
+    image: 'assets/icon/phoolgoubi.png',
+    category: 'Fesh vegetables',
+    quantity: 1,
+  ),
+];
