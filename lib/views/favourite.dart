@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_grocery_shop/views/details.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FavouritePage extends StatefulWidget {
@@ -173,12 +174,12 @@ class MeadlItem extends StatelessWidget {
       child: InkWell(
         onTap: () {
           // debugPrint(meal.name);
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(
-          //     builder: (context) => DetilsPage(),
-          //   ),
-          // );
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => DetilsPage(image: meal.image),
+            ),
+          );
         },
         child: Padding(
           padding: EdgeInsets.all(15.sp),

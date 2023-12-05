@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_grocery_shop/views/details.dart';
 import 'package:flutter_grocery_shop/views/nav.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -26,6 +27,17 @@ class _StartPageState extends State<StartPage> {
             ),
           ),
           margin: const EdgeInsets.all(8).w,
+          child: InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>
+                      DetilsPage(image: 'assets/icon/banana.png'),
+                ),
+              );
+            },
+          ),
         ),
       ),
     );
