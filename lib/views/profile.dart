@@ -17,7 +17,7 @@ class ProfilePage extends StatelessWidget {
             ),
           ),
           const Center(
-            child: Text("無設計"),
+            child: Text("Profile"),
           ),
         ],
       ),
